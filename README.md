@@ -81,11 +81,11 @@ STEP 3.
                   
                 ** now we can use the harddisk of a NFS server as a common storage.
 
-/*******************************************************************************
+*******************************************************************************
 
 STEP 4.
 ******************************************************************************
-  1.            Now first compile the  server program on the NFS client computer                   
+1.            Now first compile the  server program on the NFS client computer                   
                    run the program by using command 
                   ** gcc server.c
                   ** ./a.out
