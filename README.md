@@ -48,7 +48,7 @@ STEP 2.
                  **   create a file by enter on the terminal   vim  /etc/exports
                      
                  **  Now file will be  open then press i for insert  in the file and write
-                           /root/sharedstorage *(rw,sync);
+                           /root/sharedstorage *(rw,sync)
              
                  **  save this file.
     
@@ -59,6 +59,9 @@ STEP 2.
 
                   **  stop the  firewalls by using the command
                        service iptables stop
+
+                       //ubuntu
+                       sudo ufw disable
 ************************************************************************
 
 STEP 3.
