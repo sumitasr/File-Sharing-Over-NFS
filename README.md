@@ -1,112 +1,113 @@
 #  Implementation Of File Sharing Over NFS
+
 Video Blogging & Implementation Of File Sharing Over NFS
 
-*********************************************************************
 Software Requirements:
-Operating System: Linux
+Operating System: Linux ( Ubuntu )
 Language Used: C  
-**********************************************************************
 
-	INSTALLATION PROCEDURE:
+
+INSTALLATION PROCEDURE:
 
 STEP 1.
-***********************************************************
-  1.    In this project we uses 5 computers.
-                 2 computers for client
-                 2 computers for server
-                 1 computer for Sharedstorage
-  2.    All the computers connected by LAN.
 
-************************************************************
+    1. In this project we uses 5 computers.
+                 
+        a. 2 computers for client
+        b. 2 computers for server
+        c. 1 computer for Sharedstorage
+
+    2. All the computers should be connected on a common network.
+
 
 STEP 2.
-************************************************************
-            (This process will be on the only that computer which u want to make as a common storage)
+
+    { This process will be on the only that computer which u want to make as a common storage }
+
                                           
-                        ------------------------------NFS SERVER----------------------------------
+    ------------------------------ NFS SERVER----------------------------------
 
-    1.          check the ipaddress of all computers by using command
-                ifconfig
+    1. Check the ipaddress of all computers by using command
+       ifconfig
 
-    2.          create the NFS Enviornment between 3 computers (one for Sharedstorage & 2 server)
+    2. Create the NFS Enviornment between 3 computers (one for Sharedstorage & 2 server)
                   
-                 **    first step is open the terminal.
+        a. Open the terminal.
 
-                 **   First check the NFS is already installed on the  three computers or not by using
-                        the command   /etc/init.d/nfs start
-                        if (NFS is not installed)
-                        {
-                               install the NFS by internet then proceeed further
-                        }
-                        else
-                        {
-                              come to the next step
-                        }  
+        b. Check if NFS is already installed on the three computers or not using the command 
+          /etc/init.d/nfs start
+                        
 
-                 **   Make a directory on the comman storage by using command mkdir sharedstorage
+          if (NFS is not installed){
+            
+            install the NFS by internet then proceeed further
+          
+          }
+       
+        c.  Make a directory on the comman storage by using command 
+            mkdir sharedstorage
                  
-                 **   create a file by enter on the terminal   vim  /etc/exports
+        d.  create a file.
+            vim  /etc/exports
                      
-                 **  Now file will be  open then press i for insert  in the file and write
-                           /root/sharedstorage *(rw,sync)
+        e.  Inside file write
+            /root/sharedstorage *(rw,sync)
              
-                 **  save this file.
-    
-                 ** write the command on command prompt
-                             /etc/init.d/nfs restart
+        f.  Save this file and quit
+            :wq
+
+        g.  Restart nfs
+            /etc/init.d/nfs restart
                   
-                  ** NFS configration is complete.
+        h.  NFS configration is complete.
 
-                  **  stop the  firewalls by using the command
-                       service iptables stop
+        i.  Stop the  firewalls by using the command
+            service iptables stop
 
-                       //ubuntu
-                       sudo ufw disable
-************************************************************************
+            //ubuntu
+            sudo ufw disable
 
-STEP 3.
-************************************************************************
-               (This process will on those computers which u want to make as a server)
+STEP 3.               
 
-        --------------------------------------NFS CLIENT --------------------------------------------------
+      [ Instructions for Server computers]
 
-    1.    Now Sharedstorage is NFS server & 2 servers are NFS client.
+        ----------------NFS CLIENT ------------------
 
-    2.    Now Mount the NFS client computer to NFS server.
+      1. Sharedstorage is NFS server & 2 servers are NFS client.
 
-                **   first stop the firewall by using the command
-                      service iptables stop
+      2. Mount the NFS client computer to NFS server.
 
-                * *  Mount the computers by using command
-                      mount -t nfs -o nfsvers=3 ipaddress :/root/sharedstorage /root/temp
+          a.  First stop the firewall by using the command
+              service iptables stop
+
+          b.  Mount the computers by using command
+              mount -t nfs -o nfsvers=3 ipaddress :/root/sharedstorage /root/temp
                   
-                ** now we can use the harddisk of a NFS server as a common storage.
-
-*******************************************************************************
+          c.  Use the hard disk of a NFS server as a common storage.
 
 STEP 4.
-******************************************************************************
-    1.      Now first compile the  server program on the NFS client computer                   
-                   run the program by using command 
-                  ** gcc server.c
-                  ** ./a.out
 
-    2.      Now run the client program on the client computer 
-                **  gcc client.c
-                **  ./a.out ipadress  (EX- ./a.out 127.0.0.1)
+      1.  Compile and Run the server program on the NFS client computer                   
+          gcc server.c         
+          ./a.out
+
+      2.  Comiple and Run the client program on the client computer 
+          gcc client.c
+          ./a.out ipadress  (EX- ./a.out 127.0.0.1)
 
 
-    3.      Then these option will be display on client side.
-                    1. uploading
-                    2. Downloading
-                    3. Delete
-                    4. Exit
-                    printf(enter the choice);
+      3.  These option will be display on client side.
+                    
+          a. Uploading
+          b. Downloading
+          c. Delete
+          d. Exit
+          printf(enter the choice);
 
-    4.      According to the choice of client software will work........
-                **video will be stored on the common storage
-                ** client can download the video from the common storage....
-                ** Multiple user can upload and download the videos at the same time...
-                **self user can delete the video..
-                ** if enter 4 by the user will be disconnect from the server...
-*******************************************************************************
+      4.  According to the Client Program will Execute :
+          
+          a.  Video will be stored on the common storage.
+          b.  Client can download the video from the common storage.
+          c.  Multiple user can upload and download the videos at the same time.
+          d.  Self user can delete the video.
+          e.  If enter 4 by the user will be disconnect from the server.
