@@ -1,10 +1,10 @@
-#  Implementation Of File Sharing Over NFS
+#  Implementation Of Video Sharing Over NFS
 
 Video Blogging & Implementation Of File Sharing Over NFS
 
-Software Requirements:
-Operating System: Linux ( Ubuntu )
-Language Used: C  
+Software Requirements
+        Operating System: Linux ( Ubuntu )
+        Language Used: C  
 
 
 INSTALLATION PROCEDURE:
@@ -22,7 +22,7 @@ STEP 1.
 
 STEP 2.
 
-    { This process will be on the only that computer which u want to make as a common storage }
+    This process will be on the only that computer which u want to make as a common storage
 
                                           
     ------------------------------ NFS SERVER----------------------------------
@@ -69,7 +69,7 @@ STEP 2.
 
 STEP 3.               
 
-      [ Instructions for Server computers]
+        Instructions for Server computers
 
         ----------------NFS CLIENT ------------------
 
