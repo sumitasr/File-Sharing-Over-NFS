@@ -1,3 +1,12 @@
+/**
+ * Video Sharing Over NFS
+ * @version v1.0.0
+ * @author Sumit Bansal
+ * @link https://github.com/sumitasr/Video-Sharing-Over-NFS
+ * @license MIT License, http://www.opensource.org/licenses/MIT
+ */
+ 
+ 
 /*
 
 program:   client.c -- a stream socket client 
